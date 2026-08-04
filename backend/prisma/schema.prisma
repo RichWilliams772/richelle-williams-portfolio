@@ -1,0 +1,12 @@
+// This file will hold the User, Project, and Task models (see PLAN.md).
+// Models are added in Step 1 — left as a stub here so `prisma generate`
+// has a valid schema to point at during Step 0 setup.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
