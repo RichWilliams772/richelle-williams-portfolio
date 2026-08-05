@@ -243,7 +243,7 @@ function App() {
             </div>
             <div className="mini-links">
               <a href="https://github.com/RichWilliams772" target="_blank" rel="noreferrer">GitHub <ArrowIcon /></a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /></a>
+              <a href="https://www.linkedin.com/in/richelle-williams-b1ab87324/" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /></a>
             </div>
           </aside>
         </section>
