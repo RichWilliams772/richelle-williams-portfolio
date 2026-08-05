@@ -22,6 +22,7 @@ const projects = [
     stack: ["Kafka", "FastAPI", "WebSockets", "Isolation Forest", "React"],
     stats: ["10K+ devices", "Sub-second inference", "15–20% anomaly rate"],
     visual: "streaming",
+    github: "https://github.com/RichWilliams772/CloudSentinel",
   },
   {
     title: "Intelligent Energy Infrastructure",
@@ -32,6 +33,7 @@ const projects = [
     stack: ["Python", "FastAPI", "PostgreSQL", "React", "Docker", "Scikit-learn"],
     stats: ["Live telemetry", "Health scoring", "Predictive maintenance"],
     visual: "energy",
+    github: "https://github.com/RichWilliams772/IEI",
   },
   {
     title: "PULSE",
@@ -52,6 +54,7 @@ const projects = [
     stack: ["Python", "SQL", "Pandas", "Streamlit", "Plotly"],
     stats: ["1.5M+ records", "Automated validation", "Sourcing insights"],
     visual: "commodity",
+    github:"https://github.com/RichWilliams772/Commodity-Price-Intelligence-and-Vendor-Validation-",
   },
   {
     title: "AI Knowledge Assistant",
@@ -72,6 +75,7 @@ const projects = [
     stack: ["Python", "Scikit-learn", "EDA", "Logistic Regression", "Random Forest"],
     stats: ["Feature engineering", "ROC-AUC", "F1 evaluation"],
     visual: "churn",
+    github:"https://github.com/RichWilliams772/EDA-Patient-Churn-Dataset-Kaggle-",
   },
   {
     title: "AI Stock Price Prediction",
@@ -110,7 +114,7 @@ const experience = [
   {
     role: "Data Science Trainee & NSF NRT Scholar",
     org: "Florida Atlantic University",
-    period: "Aug 2025 — Present",
+    period: "Aug 2025 — Aug 2026",
     detail:
       "Develop machine learning models and statistical analyses on real-world datasets, collaborate with faculty researchers, and translate findings into publication-ready technical work.",
   },
@@ -121,13 +125,7 @@ const experience = [
     detail:
       "Designed GPT-powered automation systems, agentic workflows, and API-driven proof-of-concept applications for internal operations and scalable AI adoption.",
   },
-  {
-    role: "Data Engineer — Data Infrastructure & Systems",
-    org: "Digital System Storage",
-    period: "2021 — 2023",
-    detail:
-      "Optimized 10TB+ operational datasets, reduced processing latency by 25–35%, and built Kafka pipelines and FastAPI services for telemetry processing and machine-learning inference.",
-  },
+ 
 ];
 
 const skillGroups = [
@@ -225,16 +223,18 @@ function App() {
               <div><strong>1.5M+</strong><span>records analyzed</span></div>
               <div><strong>10K+</strong><span>devices monitored</span></div>
               <div><strong>37M+</strong><span>hosts sampled</span></div>
-              <div><strong>25–35%</strong><span>latency reduction</span></div>
+              <div><strong>$40K</strong><span>awards and fellowship funding</span></div>
             </div>
           </div>
 
           <aside className="hero-card" aria-label="Current profile">
             <div className="status-line"><span className="status-dot" /> Open to AI, FinTech, data, and research opportunities</div>
-            <div className="portrait-placeholder" aria-hidden="true">
-              <div className="portrait-orbit orbit-a" />
-              <div className="portrait-orbit orbit-b" />
-              <span>RW</span>
+            <div className="portrait-placeholder">
+              <img
+                src="/images/richelle.jpeg"
+                alt="Richelle Williams"
+                className="portrait-image"
+              />
             </div>
             <div className="hero-card-copy">
               <p>Currently</p>
@@ -290,21 +290,51 @@ function App() {
               ))}
             </div>
           </div>
+<div className="project-grid">
+  {visibleProjects.map((project, index) => (
+    <article
+      className={
+        index === 0
+          ? "project-card project-card-wide"
+          : "project-card"
+      }
+      key={project.title}
+    >
+      <ProjectVisual type={project.visual} />
 
-          <div className="project-grid">
-            {visibleProjects.map((project, index) => (
-              <article className={index === 0 ? "project-card project-card-wide" : "project-card"} key={project.title}>
-                <ProjectVisual type={project.visual} />
-                <div className="project-content">
-                  <p className="project-type">{project.kicker}</p>
-                  <h3>{project.title}</h3>
-                  <p>{project.summary}</p>
-                  <div className="metric-row">{project.stats.map((metric) => <span key={metric}>{metric}</span>)}</div>
-                  <div className="tag-row">{project.stack.map((technology) => <span key={technology}>{technology}</span>)}</div>
-                </div>
-              </article>
-            ))}
-          </div>
+      <div className="project-content">
+        <p className="project-type">{project.kicker}</p>
+        <h3>{project.title}</h3>
+        <p>{project.summary}</p>
+
+        <div className="metric-row">
+          {project.stats.map((metric) => (
+            <span key={metric}>{metric}</span>
+          ))}
+        </div>
+
+        <div className="tag-row">
+          {project.stack.map((technology) => (
+            <span key={technology}>{technology}</span>
+          ))}
+        </div>
+
+        {project.github && (
+          <a
+            className="project-link"
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`View ${project.title} repository on GitHub`}
+          >
+            View GitHub <ArrowIcon />
+          </a>
+        )}
+      </div>
+    </article>
+  ))}
+</div>
+
         </section>
 
         <section className="research-band" id="research">
